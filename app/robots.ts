@@ -1,18 +1,14 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: 'Googlebot',
-        allow: ['/'],
-        disallow: '/private/',
-      },
-      {
-        userAgent: ['Applebot', 'Bingbot'],
-        disallow: ['/'],
+        userAgent: "*",
+        allow: ["/"],
+        disallow: ["/api/", "/private/"],
       },
     ],
-    sitemap: 'https://whispers-gray.vercel.app/sitemap.xml',
-  }
+    sitemap: "https://whispers-gray.vercel.app/sitemap.xml",
+  };
 }

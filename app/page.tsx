@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Whispers - Anonymous Messaging Platform | Share Thoughts Securely",
-  description: "Whispers is a secure anonymous messaging platform where you can share your thoughts freely. Send and receive anonymous messages in organized inboxes with complete privacy protection.",
+  description:
+    "Whispers is a secure anonymous messaging platform where you can share your thoughts freely. Send and receive anonymous messages in organized inboxes with complete privacy protection.",
   keywords: [
     "anonymous messaging",
     "secure messaging",
@@ -40,7 +41,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://whispers-gray.vercel.app",
     title: "Whispers - Anonymous Messaging Platform",
-    description: "Share your thoughts anonymously and securely with Whispers. Create multiple inboxes and communicate freely with complete privacy.",
+    description:
+      "Share your thoughts anonymously and securely with Whispers. Create multiple inboxes and communicate freely with complete privacy.",
     siteName: "Whispers",
     images: [
       {
@@ -54,7 +56,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Whispers - Anonymous Messaging Platform",
-    description: "Share your thoughts anonymously and securely. Send and receive private messages with complete privacy protection.",
+    description:
+      "Share your thoughts anonymously and securely. Send and receive private messages with complete privacy protection.",
     images: ["/images/whisper-hero.png"],
     creator: "@eniola_aba",
   },
@@ -67,14 +70,14 @@ export const metadata: Metadata = {
   },
 };
 
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "Whispers",
   applicationCategory: "CommunicationApplication",
   operatingSystem: "Web Browser",
-  description: "A secure anonymous messaging platform where you can share your thoughts freely and receive anonymous messages in organized inboxes.",
+  description:
+    "A secure anonymous messaging platform where you can share your thoughts freely and receive anonymous messages in organized inboxes.",
   url: "https://whispers-gray.vercel.app",
   image: "https://whispers-gray.vercel.app/images/whisper-hero.png",
   author: [
@@ -85,8 +88,8 @@ const jsonLd = {
       sameAs: [
         "https://www.github.com/Ukeme-Edet",
         "https://www.linkedin.com/in/ukeme-edet-12961a227",
-        "https://twitter.com/ukeme__edet"
-      ]
+        "https://x.com/ukeme__edet",
+      ],
     },
     {
       "@type": "Person",
@@ -95,39 +98,93 @@ const jsonLd = {
       sameAs: [
         "https://www.github.com/Enielect",
         "https://www.linkedin.com/in/eniola-abayomi-045605232",
-        "https://twitter.com/enielect"
-      ]
+        "https://x.com/enielect",
+      ],
     },
     {
       "@type": "Person",
       name: "Bukunmi Ogunneye",
       jobTitle: "UI/UX Engineer",
-      email: "bukunmiogunneye0@gmail.com"
-    }
+      email: "bukunmiogunneye0@gmail.com",
+    },
   ],
   offers: {
     "@type": "Offer",
     price: "0",
-    priceCurrency: "USD"
+    priceCurrency: "USD",
   },
   featureList: [
     "Anonymous messaging",
     "Secure communication",
     "Multiple inboxes",
-    "Privacy protection"
-  ]
+    "Privacy protection",
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is Whispers really anonymous?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! We do not collect or store any identifying information about message senders. Your identity remains completely private when you send anonymous messages.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I create an inbox?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Simply sign up for a free account, and you can create as many inboxes as you need. Each inbox can be customized for different purposes or groups.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Whispers free to use?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Whispers is completely free to use. You can send and receive unlimited anonymous messages at no cost.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I delete messages I receive?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. You have full control over your inbox and can delete any messages you receive at any time.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does Whispers protect my privacy?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We use industry-standard encryption and do not track sender information. Our platform is designed with privacy as the top priority, ensuring all communications remain anonymous and secure.",
+      },
+    },
+  ],
 };
 
 export default function LandingPage() {
   return (
-    
     <div className="flex flex-col min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}></script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      ></script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      ></script>
       <TopNav />
       <main className="flex-grow">
         <IntroSection />
         <FeaturesSection />
         <AboutSection />
+        <FAQSection />
       </main>
       <footer className="bg-black text-white py-6">
         <div className="container mx-auto px-6 text-center">
@@ -154,6 +211,9 @@ function TopNav() {
           <a href="/#about" className="hover:text-gray-300">
             About
           </a>
+          <a href="/#faq" className="hover:text-gray-300">
+            FAQ
+          </a>
         </div>
       </nav>
     </header>
@@ -164,7 +224,7 @@ function IntroSection() {
   return (
     <section
       id="hero"
-      className="relative  h-screen flex items-center   justify-center text-white"
+      className="relative h-screen flex items-center justify-center text-white"
     >
       <div
         style={{
@@ -174,10 +234,12 @@ function IntroSection() {
       ></div>
       <Image
         src="/images/whisper-hero.png"
-        alt="Whispers Cover"
-        layout="fill"
-        objectFit="cover"
+        alt="Whispers Anonymous Messaging Platform - Share thoughts securely"
+        fill
+        sizes="100vw"
+        style={{ objectFit: "cover" }}
         className="absolute inset-0 blur-sm"
+        priority
       />
       <div className="absolute inset-0 bg-[#151515] opacity-50"></div>
       <div className="relative z-10 text-center space-y-6">
@@ -188,7 +250,7 @@ function IntroSection() {
         <Link
           href="/inbox"
           target="_blank"
-          className="inline-block bg-[#06D440] text-gray-900 px-6 py-3 rounded-full font-semibold hover:scale-105 transition duration-300 "
+          className="inline-block bg-[#06D440] text-gray-900 px-6 py-3 rounded-full font-semibold hover:scale-105 transition duration-300"
         >
           Start Whispering
         </Link>
@@ -209,18 +271,21 @@ function FeaturesSection() {
               description:
                 "Easily view messages from your inbox in a clean and organized manner.",
               image: "/images/anonymous-message.png",
+              alt: "Screenshot of organized inbox showing anonymous messages in a clean interface",
             },
             {
               name: "Managing Inboxes",
               description:
-                "You can create as many inboxes as you want, with each of them stramlining to specifics.",
+                "You can create as many inboxes as you want, with each of them streamlining to specifics.",
               image: "/images/manage-inbox.png",
+              alt: "Multiple inbox management interface for organizing anonymous messages by category",
             },
             {
               name: "Anonymous Messaging",
               description:
                 "Send messages without revealing your identity. Our platform ensures your privacy.",
               image: "/images/send-anonymous.png",
+              alt: "Send anonymous message form with privacy protection features",
             },
           ].map((feature, index) => (
             <div
@@ -229,7 +294,7 @@ function FeaturesSection() {
             >
               <Image
                 src={feature.image}
-                alt={feature.name}
+                alt={feature.alt}
                 width={400}
                 height={300}
                 className="w-full h-[13rem] object-cover"
@@ -339,6 +404,59 @@ function AboutSection() {
               Backend
             </Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Is Whispers really anonymous?",
+      answer:
+        "Yes! We do not collect or store any identifying information about message senders. Your identity remains completely private when you send anonymous messages.",
+    },
+    {
+      question: "How do I create an inbox?",
+      answer:
+        "Simply sign up for a free account, and you can create as many inboxes as you need. Each inbox can be customized for different purposes or groups.",
+    },
+    {
+      question: "Is Whispers free to use?",
+      answer:
+        "Yes, Whispers is completely free to use. You can send and receive unlimited anonymous messages at no cost.",
+    },
+    {
+      question: "Can I delete messages I receive?",
+      answer:
+        "Absolutely. You have full control over your inbox and can delete any messages you receive at any time.",
+    },
+    {
+      question: "How does Whispers protect my privacy?",
+      answer:
+        "We use industry-standard encryption and do not track sender information. Our platform is designed with privacy as the top priority, ensuring all communications remain anonymous and secure.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="py-20 bg-black text-white">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-3xl mx-auto space-y-6">
+          {faqs.map((faq, index) => (
+            <details key={index} className="bg-[#151515] rounded-lg p-6 group">
+              <summary className="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                {faq.question}
+                <span className="ml-4 transition-transform group-open:rotate-180">
+                  ▼
+                </span>
+              </summary>
+              <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>

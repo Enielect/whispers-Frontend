@@ -1,12 +1,33 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://whispers-gray.vercel.app";
+  const now = new Date();
+
   return [
     {
-      url: "https://whispers-gray.vercel.app",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
+      url: baseUrl,
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${baseUrl}/login`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/create`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/inbox`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
     },
   ];
 }
