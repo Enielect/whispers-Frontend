@@ -1,10 +1,128 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Figma, Github, Linkedin, Twitter } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Whispers - Anonymous Messaging Platform | Share Thoughts Securely",
+  description: "Whispers is a secure anonymous messaging platform where you can share your thoughts freely. Send and receive anonymous messages in organized inboxes with complete privacy protection.",
+  keywords: [
+    "anonymous messaging",
+    "secure messaging",
+    "private messages",
+    "anonymous communication",
+    "confidential messaging",
+    "secret messages",
+    "privacy messaging app",
+    "anonymous feedback",
+    "secure inbox",
+  ],
+  authors: [
+    { name: "Ukeme Edet" },
+    { name: "Eniola Abayomi" },
+    { name: "Bukunmi Ogunneye" },
+  ],
+  creator: "Whispers Team",
+  publisher: "Whispers",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://whispers-gray.vercel.app",
+    title: "Whispers - Anonymous Messaging Platform",
+    description: "Share your thoughts anonymously and securely with Whispers. Create multiple inboxes and communicate freely with complete privacy.",
+    siteName: "Whispers",
+    images: [
+      {
+        url: "/images/whisper-hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Whispers - Anonymous Messaging Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Whispers - Anonymous Messaging Platform",
+    description: "Share your thoughts anonymously and securely. Send and receive private messages with complete privacy protection.",
+    images: ["/images/whisper-hero.png"],
+    creator: "@eniola_aba",
+  },
+  alternates: {
+    canonical: "https://whispers-gray.vercel.app",
+  },
+  category: "technology",
+  verification: {
+    google: "OWTwFYVLt-HdcUiC7Gd8cLzNk-9B_EomyzLxNJLtMbY",
+  },
+};
+
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Whispers",
+  applicationCategory: "CommunicationApplication",
+  operatingSystem: "Web Browser",
+  description: "A secure anonymous messaging platform where you can share your thoughts freely and receive anonymous messages in organized inboxes.",
+  url: "https://whispers-gray.vercel.app",
+  image: "https://whispers-gray.vercel.app/images/whisper-hero.png",
+  author: [
+    {
+      "@type": "Person",
+      name: "Ukeme Edet",
+      jobTitle: "Project Lead, Backend Engineer",
+      sameAs: [
+        "https://www.github.com/Ukeme-Edet",
+        "https://www.linkedin.com/in/ukeme-edet-12961a227",
+        "https://twitter.com/ukeme__edet"
+      ]
+    },
+    {
+      "@type": "Person",
+      name: "Eniola Abayomi",
+      jobTitle: "Frontend Engineer",
+      sameAs: [
+        "https://www.github.com/Enielect",
+        "https://www.linkedin.com/in/eniola-abayomi-045605232",
+        "https://twitter.com/enielect"
+      ]
+    },
+    {
+      "@type": "Person",
+      name: "Bukunmi Ogunneye",
+      jobTitle: "UI/UX Engineer",
+      email: "bukunmiogunneye0@gmail.com"
+    }
+  ],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD"
+  },
+  featureList: [
+    "Anonymous messaging",
+    "Secure communication",
+    "Multiple inboxes",
+    "Privacy protection"
+  ]
+};
 
 export default function LandingPage() {
   return (
+    
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}></script>
       <TopNav />
       <main className="flex-grow">
         <IntroSection />

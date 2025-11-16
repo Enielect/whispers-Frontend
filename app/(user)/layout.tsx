@@ -5,6 +5,8 @@ type Prop = Readonly<{
   children: ReactNode;
 }>;
 
+
+
 export default function UserLayout({ children }: Prop) {
   return (
     <main className="w-full  min-h-screen">
